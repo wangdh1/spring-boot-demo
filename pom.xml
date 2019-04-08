@@ -105,6 +105,30 @@
 					<executable>true</executable>
 				</configuration>
 			</plugin>
+			<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>package</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <tasks>
+                                <!-- copy the properties file into the temporary directory -->
+                                <echo>copy file to target.</echo>
+                                <!-- <mkdir dir="${env.USERPROFILE}/Automation/Test-Parameters/"
+                                    /> -->
+                                <copy todir="${project.basedir}/target/config/" overwrite="true">
+                                    <fileset dir="${project.basedir}/config/"/>
+                                </copy>
+                            </tasks>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
 		</plugins>
 	</build>
 
