@@ -4,6 +4,7 @@ spring:
   profiles:
     active:
       - secure
+#指定端口
 server:
   port: 8081
 
@@ -43,3 +44,11 @@ eureka:
     metadata-map:
       user.name: "admin"         #These two are needed so that the server
       user.password: "admin" #can access the protected client endpoints
+
+---
+
+spring:
+  mail:
+    host: smtp.qq.com
+    username: 576333708@qq.com
+    password: yseunxreevrnbfeh
