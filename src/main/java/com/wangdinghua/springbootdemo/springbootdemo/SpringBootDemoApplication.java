@@ -49,6 +49,8 @@ public class SpringBootDemoApplication {
 			http.authorizeRequests()
 					.antMatchers(adminContextPath + "/assets/**").permitAll()
 					.antMatchers(adminContextPath + "/login").permitAll()
+					//prometheus不需要校验
+					.antMatchers(adminContextPath + "/actuator/prometheus").permitAll()
 					.anyRequest().authenticated()
 					.and()
 					.formLogin().loginPage(adminContextPath + "/login").successHandler(successHandler).and()
